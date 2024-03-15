@@ -2,7 +2,7 @@
 	<img src="https://capsule-render.vercel.app/api?type=waving&color=auto&height=200&section=header&text=Airbnb&fontSize=80" />	
 </div>
 
-## [벡엔드 바로가기](https://github.com/jingom368/Team_Project_Spring)
+## [벡엔드 바로가기](https://github.com/kxdxxgx/Dormitory_Spring)
 
 <h2>- Architecture</h2>
 <div><img src="https://github.com/jingom368/Team_Project_Spring/assets/67932739/d0605ed2-42bf-4e49-aa7f-eb8cf751b60d" /></div>
