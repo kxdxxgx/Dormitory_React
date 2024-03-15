@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body></body>
+    <script>
+        function calculateDistance(points) {
+            let diff = points[1] - points[0]
+            return Math.sqrt(diff * diff)
+        }
+
+        function twoOpt(points, improvementThreshold) {
+            let numPoints = points.length
+            let improvementFactor = 1
+            while (improvementFactor > improvementThreshold) {
+                let distanceToBeat = calculateDistance(points)
+                for (let swapFirst = 1; swapFirst < numPoints - 2; swapFirst++) {
+                    for (let swapLast = swapFirst + 1; swapLast < numPoints - 1; swapLast++) {
+                        let newPoints = [...points]
+                        let toReverse = newPoints.splice(swapFirst, swapLast - swapFirst + 1)
+                        toReverse.reverse()
+                        newPoints.splice(swapFirst, 0, ...toReverse)
+                        let newDistance = calculateDistance(newPoints)
+                        if (newDistance < distanceToBeat) {
+                            points = newPoints
+                            improvementFactor = 1 - newDistance / distanceToBeat
+                            break
+                        } else {
+                            improvementFactor = 0
+                        }
+                    }
+                }
+            }
+            return points
+        }
+
+        let points = [
+            [0, 0],
+            [1, 2],
+            [3, 4],
+            [4, 5],
+            [2, 3],
+            [7, 8],
+            [5, 6],
+        ]
+
+        let optimized_points = twoOpt(points, 0.002)
+
+        console.log(twoOpt(points, 0.001))
+    </script>
+</html>

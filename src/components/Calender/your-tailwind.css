@@ -1,0 +1,10 @@
+/* your-tailwind.css */
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+@layer components {
+    .my-datepicker div > input {
+        @apply text-red-500;
+    }
+}

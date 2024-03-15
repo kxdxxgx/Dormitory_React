@@ -1,0 +1,22 @@
+import googleLogin from '../../assets/img/googleLogin.png'
+
+const GoogleLogin = () => {
+    const Kakao_CLIENT_ID = process.env.KAKAO_CLIENT_ID // 발급받은 클라이언트 아이디
+    // const Rest_api_key = 'REST API KEY' //REST API KEY
+    // const redirect_uri = 'http://localhost:3000/auth' //Redirect URI
+    // const code = new URL(window.location.href).searchParams.get('code')
+    // oauth 요청 URL
+    // const kakaoURL = `https://kauth.kakao.com/oauth/authorize?client_id=${Kakao_CLIENT_ID}&redirect_uri=http://localhost:3000/auth&response_type=code`
+    const googleURL = 'http://localhost:8080/api/oauth2/authorization/google'
+    const handleLogin = () => {
+        window.location.href = googleURL
+    }
+    return (
+        <>
+            <button onClick={handleLogin}>
+                <img src={googleLogin} />
+            </button>
+        </>
+    )
+}
+export default GoogleLogin
